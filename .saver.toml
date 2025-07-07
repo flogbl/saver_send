@@ -1,0 +1,14 @@
+## Create the client signed certificate (public and private key)
+#openssl req -newkey rsa:4096 -nodes -keyout client.key.pem -out client.req.pem
+## Générate the client certificate (public and private key)
+#openssl x509 -req -in client.req.pem -days 90 -CA ca.cert.pem -CAkey ca.key.pem -out client.cert.pem
+#
+#
+[send]
+save_name = 'test'
+cli_key_x509 = '/home/flo/tmp/client.cert.pem'
+cli_key_priv = '/home/flo/tmp/client.key.pem'
+server_name = 'localhost'
+server_port = '65013'
+server_cert_x509 = '/home/flo/tmp/server.cert.pem'
+ca_x509 = '/home/flo/tmp/ca.cert.pem'
